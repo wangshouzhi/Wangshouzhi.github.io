@@ -43,8 +43,8 @@
 
 ```
 # Site settings
-title: SZ Blog                    # 你的博客网站标题
-SEOTitle: 守志的博客 | SZ Blog		# SEO 标题
+title: WSZ Blog                    # 你的博客网站标题
+SEOTitle: 守志的博客 | WSZ Blog		# SEO 标题
 description: "Hey"	   	   # 随便说点，描述一下
 
 # SNS settings
@@ -82,7 +82,6 @@ tags:
 ### 侧边栏
 
 看右边:
-![](https://raw.githubusercontent.com/qiubaiying/qiubaiying.github.io/master/img/readme-side.png)
 
 设置是在 `_config.yml`文件里面的`Sidebar settings`那块。
 
@@ -141,12 +140,8 @@ featured-condition-size: 1     # A tag will be featured if the size of it is mor
 # Friends
 friends: [
     {
-        title: "BY Blog",
-        href: "https://qiubaiying.github.io/"
-    },
-    {
-        title: "Apple",
-        href: "https://apple.com/"
+        title: "WSZ Blog",
+        href: "https://wangshouzhi.github.io/"
     }
 ]
 ```
@@ -238,7 +233,7 @@ ga_domain: huangxuan.me			# 默认的是 auto, 这里我是自定义了的域名
 
 ### SEO Title
 
-我的博客标题是 **“SZ Blog”** 但是我想要在搜索的时候显示 **“守志的博客 | SZ Blog”** ，这个就需要 SEO Title 来定义了。
+我的博客标题是 **“WSZ Blog”** 但是我想要在搜索的时候显示 **“王守志的博客 | WSZ Blog”** ，这个就需要 SEO Title 来定义了。
 
 其实这个 SEO Title 就是定义了<head><title>标题</title></head>这个里面的东西和多说分享的标题，你可以自行修改的。
 
