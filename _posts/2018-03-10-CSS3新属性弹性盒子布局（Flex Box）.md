@@ -4,7 +4,7 @@ title:      CSS3弹性盒子布局详细介绍
 subtitle:   CSS3弹性盒更加适合移动端项目使用
 date:       2018-03-10
 author:     Wsz
-header-img: img/koaloImg/koalaBanner.png
+header-img: img
 catalog: true
 tags:
     - CSS3
