@@ -19,7 +19,6 @@ IE9及以上兼容问题主要从一下几个方面入手：ES6新语法不兼�
 
 注意项目使用vue-cli3脚手架
 
-
 ## 一、安装babel-polyfill
   IE浏览器没有内置Promise对象。不仅如此，几乎所有的ES6新增的方法在IE都不能用，此时你需要babel Polyfill  
 
