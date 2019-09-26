@@ -36,7 +36,7 @@ IE9及以上兼容问题主要从一下几个方面入手：ES6新语法不兼�
       .add('babel-polyfill')
     config.resolve.alias
       .set('@', resolve('src')) // key,value自行定义，比如.set('@@', resolve('src/components'))
-      .set('_c', resolve('src/components'))
+      .set('_c', resolve('src/components'))  
   },
 
 
@@ -128,14 +128,12 @@ ie9是不支持requestAnimationFrame的，如果你使用了出现错误，那�
 }());
 
 ```
-
-
 ### 五.兼容classList（ie9）
 错误信息：
 无法获取未定义或 null 引用的属性“add”
 无法获取未定义或 null 引用的属性“remove”  
 
-如果你查看sourceMap发现了classList().add或classList.remove()等等，那肯定是classList的问题了。
+如果你查看sourceMap发现了classList().add或classList.remove()等等，那肯定是classList的问题了。  
 
 解决方案：添加以下代码到main.js
 ```
@@ -178,7 +176,7 @@ if (!('classList' in document.documentElement)) {
     });
 }
 ```
-注意：项目兼容IE9flex布局一定不能使用，包括一些新属性，还有axios方法封装是注意。以后有发现会再补充，如有新意见欢迎评论中提出共同探讨。
+注意：项目兼容IE 某些css3属性不要使用，现已知道flex布局一定不能使用，还有axios方法封装是注意。以后有发现会再补充，如有新意见欢迎评论中提出共同探讨。
 
 
 
