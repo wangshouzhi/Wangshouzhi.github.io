@@ -60,12 +60,30 @@ iframe-page组件开发主要有两点。
 这是tabs代码使用iview组件库中的tabs，一看就会明白
 <template>
     <Tabs type="card" :value="tabValue" class="iframe_page" :animated="animated">
-        <TabPane v-for="(tab) in iframeTabsPage" :key="tab.menuName" :label="'标签'+tab.menuName" :name="tab.menuName">
+        <TabPane v-for="(tab) in iframeTabs" :key="tab.menuName" :label="'标签'+tab.menuName" :name="tab.menuName">
             <iframe class="iframe_page_src"  frameborder="0" :src="tab.resource" sandbox="allow-forms allow-scripts allow-same-origin allow-popups">  
             </iframe>
         </TabPane>
     </Tabs>
 </template>
+<script>
+import store from '@/store'
+export default {
+    name: "IframePage",
+    data() {
+        return{
+        }
+    },
+    computed: {
+        iframeTabs() {
+            return this.$store.getters.getIframeTabs
+        },
+        tabValue() {
+            return this.$store.state.app.tabValue
+        }
+    }
+}
+</script>
 ```
 第二点是tabs选项卡中iframeTabsPage数据怎么来，每页iframe地址数据。  
 这里有两个思路：  
