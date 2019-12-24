@@ -14,8 +14,9 @@ tags:
 ---
 
 ## 常用使用方法keep-alive
+
  keep-alive 是 Vue 内置的一个组件，使被包含的组件保留状态，或避免重新渲染。  
- ```
+```
  //修改1.在路由表js  增加 router.meta 属性
    {
     path: '/personalInfo',
@@ -69,8 +70,9 @@ tags:
     <router-view v-show='$route.meta.iframeShow === 0' v-if='!$route.meta.keepAlive'/>
     <ABackTop :height='100' :bottom='80' :right='50' container='.content-wrapper'></ABackTop>
 </Content>
- ```
- 这样就可以实现路由切换状态保持效果
+```
+
+这样就可以实现路由切换状态保持效果
 
 ## 高级用法
 

@@ -20,16 +20,15 @@ IE9及以上兼容问题主要从一下几个方面入手：ES6新语法不兼�
 注意项目使用vue-cli3脚手架
 
 ## 一、安装babel-polyfill
+
   IE浏览器没有内置Promise对象。不仅如此，几乎所有的ES6新增的方法在IE都不能用，此时你需要babel Polyfill  
 
   1、命令 npm install babel-polyfill --save  
 
   2、修改vue.config.js
     在文件开头加上
-    require('babel-polyfill')  
-
-在module.exports中加一下代码  
-
+    require('babel-polyfill')在module.exports中加一下代码  
+```
     chainWebpack: config => {
     config
       .entry('polyfill')
@@ -38,13 +37,11 @@ IE9及以上兼容问题主要从一下几个方面入手：ES6新语法不兼�
       .set('@', resolve('src')) // key,value自行定义，比如.set('@@', resolve('src/components'))
       .set('_c', resolve('src/components'))  
   },
-
-
+```
 
 ## 二.Pormise的问题，原来是Axios不能直接兼容IE9
 
-
-  1、先去项目里下载es6-promise
+1、先去项目里下载es6-promise
 
 npm install es6-promise
 
@@ -59,7 +56,8 @@ Promise.polyfill();
 
 这是ie10及以下不支持dataset导致的，而iview的transfer-dom.js使用了这个属性  
 
-解决办法：在main.js加入如下代码   
+解决办法：在main.js加入如下代码
+
 ``` 
 if (window.HTMLElement) {  
     if (Object.getOwnPropertyNames(HTMLElement.prototype).indexOf('dataset') === -1) {
@@ -87,19 +85,19 @@ if (window.HTMLElement) {
 }
 ```
 
-
 ### 四.兼容requestAnimationFrame（ie9）
 
 ie9是不支持requestAnimationFrame的，如果你使用了出现错误，那也没关系，往下看就行了。
 
 解决方案：添加以下代码到main.js
+
 ```
+
 // window.requestAnimationFrame多浏览器兼容问题补丁
 // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
 // http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
 // requestAnimationFrame polyfill by Erik Möller. fixes from Paul Irish and Tino Zijdel
 // MIT license
-
 (function () {
     var lastTime = 0;
     var vendors = ['ms', 'moz', 'webkit', 'o'];
@@ -128,7 +126,9 @@ ie9是不支持requestAnimationFrame的，如果你使用了出现错误，那�
 }());
 
 ```
+
 ### 五.兼容classList（ie9）
+
 错误信息：
 无法获取未定义或 null 引用的属性“add”
 无法获取未定义或 null 引用的属性“remove”  
@@ -136,7 +136,9 @@ ie9是不支持requestAnimationFrame的，如果你使用了出现错误，那�
 如果你查看sourceMap发现了classList().add或classList.remove()等等，那肯定是classList的问题了。  
 
 解决方案：添加以下代码到main.js
+
 ```
+
 if (!('classList' in document.documentElement)) {
     Object.defineProperty(HTMLElement.prototype, 'classList', {
         get: function () {
@@ -176,7 +178,5 @@ if (!('classList' in document.documentElement)) {
     });
 }
 ```
+
 注意：项目兼容IE 某些css3属性不要使用，现已知道flex布局一定不能使用，还有axios方法封装是注意。以后有发现会再补充，如有新意见欢迎评论中提出共同探讨。
-
-
-

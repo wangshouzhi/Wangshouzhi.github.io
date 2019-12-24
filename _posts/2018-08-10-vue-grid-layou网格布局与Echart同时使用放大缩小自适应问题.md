@@ -30,7 +30,7 @@ tags:
 
   宽高为0，解决办法给Echart加载加上异步效果，通过异步最好加载就可以解决了。
 
-  ![问题效果图](http://wangshouzhi/wangshouzhi.github.io/master/img/vue-grid-layout/vu.png).
+  ![问题效果图](../img/vue-grid-layout/vu.png)
 
   2、网格布局拖拽放大缩小图表不能自适应，Echart只是固定宽高。
 
@@ -38,7 +38,7 @@ tags:
 
   1、解决办法其实不难，只是当时不知问题所在，所以不知道如何解决，给Echart 图表创建加载过程加一个延时setTimeout，使加载Echart加载过程为异步就可以了，直接展示一下代码
 
-  (```)
+```
 
       methods: {
          echartDom () {
@@ -58,7 +58,7 @@ tags:
          },
       },
 
-  (```)
+```
 
   问题解决了，轻松又愉快，当然可能还有更加方便合适的
 
